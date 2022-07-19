@@ -2,8 +2,10 @@ body, html{
     padding: 0;
     margin: 0;
     overflow: hidden;
+    font-family: 'Noto Sans', sans-serif;
+
 }
-/* --- helper classes */
+/* --- helper classes --- */
 .centre{
     position: fixed;
     top: 50%;
@@ -15,45 +17,125 @@ body, html{
 }
 
 .hide{
-    display: none;
+    display: none !important;
 }
 
-#gameContainer{
+.blur{
+    backdrop-filter: blur(80px);
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.30) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
 
-    background-image: url(../images/background-four.jpg);
+/* --- START SCREEN --- */
+.startPopUp{
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    color: rgb(255, 255, 255);
+}
+.startPopUp p, .startPopUp h1{
+    width: 35vh;
+}
+.startPopUp h1{
+    align-self: end;
+    border-bottom: solid 1px rgb(255, 255, 255);
+    padding: 0 0 0.5em 0;
+}
+.startPopUp p{
+    align-self: start;
+
+
+}
+
+/* --- GAME --- */
+
+#gameContainer{
+    background-image: url(../images/bg.jpg);
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     filter: grayscale(30%);
-
 }
 
 .game{
-    backdrop-filter: blur(100px);
-    border-radius: 20px;
-    box-shadow: rgba(0, 0, 0, 0.30) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     display:grid;
     grid-template-columns: 5% 45% 45% 5%;
+    grid-template-rows: 60% 20% 20%;
 }
 
-.game button{
-    background-color: #0a093b; 
-    color: rgb(255, 255, 255);
-    width: 95%;
-    height: 100px;
+
+/* button design taken from insperation and edited to suit needs of this project from
+ --- https://getcssscan.com/css-buttons-examples ---                                   
+ */
+
+ button {
+    position: relative;
+    overflow: hidden;
     border: none;
-    text-align: center;
-    text-decoration: none;
+    color: #18181a;
     display: inline-block;
-    font-size: 1.5em;
-    transition: 0.5s ease-in-out;
+    font-size: 1em;
+    line-height: 15px;
+    padding: 18px 18px 17px;
+    width: 60vw;
+    height: 4em;
+    text-decoration: none;
+    cursor: pointer;
+    background: #fff;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 7px, rgba(0, 0, 0, 0.20) 0px 4px 7px;
 
 }
 
-.game button:hover{
-    background-color: rgb(97, 11, 93);
+button span:first-child {
+    position: relative;
+    transition: color 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 10;
+}
+
+button span:last-child {
+    color: rgb(0, 0, 0);
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: all 500ms cubic-bezier(0.48, 0, 0.12, 1);
+    z-index: 100;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateY(255%) translateX(-50%);
+    height: 0.4em;
+    line-height: 13px;
+    width: 40vw;
+}
+
+button:after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(238, 170, 43);
+    transform-origin: bottom center;
+    transition: transform 600ms cubic-bezier(0.48, 0, 0.12, 1);
+    transform: skewY(9.3deg) scaleY(0);
+    z-index: 50;
+}
+
+button:hover:after {
+    transform-origin: bottom center;
+    transform: skewY(9.3deg) scaleY(2);
+}
+
+button:hover span:last-child {
+    transform: translateX(-50%) translateY(-100%);
+    opacity: 1;
+    transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
 .game div{
@@ -62,7 +144,37 @@ body, html{
 #question{
     grid-column: 2/4;
     color: rgb(255, 255, 255);
+    text-align: center;
+    place-self: center;  
+    font-size: 2em;
 }
+#choiceOne, #choiceTwo{
+    grid-column: 2/4;
+    align-self: start;
+    justify-self: center;
+}
+
 #choiceOne{
-    grid-column: 2/3;
+    align-self: end;
+    margin-bottom: 2em;
+}
+
+/* STATISTIC SCREEN */
+.statisticsContainer{
+    display: grid;
+    grid-template-rows: 80% 20%;
+
+}
+
+#statistics{
+    align-self: center;
+    justify-self: center;
+    color: white;
+    width: 85vw;
+}
+
+#nextQuestion{
+    justify-self: center;
+    align-self: end;
+    margin-bottom: 1em;
 }

@@ -5,24 +5,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
     <title>Would You Rather?</title>
 </head>
-
 <body>
     <div id="gameContainer">
-        <div class='startPopUp'>
+       <!-- <header>
+            <nav>
+                <ul id="menu">
+                    <li>
+                        <a href="index.html">Restart</a>
+                    </li>
+                </ul>
+            </nav>
+        </header> -->
+        <div class='startPopUp blur centre hide'>
+            <h1>Are you ready to make your own choices?</h1>
+            <p> Game where you get to choose what you think is best, or worst, there is no one stopping you from picking whatever you want.. </p>
+            <button id="startGame">
+                <span>PLAY</span>
+                <span>or would you rather not..?</span>
+            </button>
         </div>
-        <div class="game centre">
-            <div></div>
+        <div class="game centre blur ">
             <h1 id="question">Sample Question One that will be taken from database?</h1>
-            <button id="choiceOne">Option One</button>
-            <button id="choiceTwo">Option Two</button>
+            <button id="choiceOne">
+                <span class="text">Some type of Option</span>
+                <span>What would Batman do?</span>
+            </button>
+            <button id="choiceTwo">
+                <span class="text">Differnt option here</span>
+                <span>Are you sure about this ?</span>
+            </button>
         </div>
-        <div class="statisticsContainer centre hide">
+        <div class="statisticsContainer centre blur hide">
             <div id="statistics">
-
+                <canvas id="resultsChart"></canvas>
             </div>
-            <button id="nextQuestion">Next Question</button>
+            <button id="nextQuestion">
+                <span>Next Question</span>
+                <span>Would you rather play again or..?</span>
+            </button>
         </div>
     </div>
 
