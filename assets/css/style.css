@@ -27,21 +27,21 @@ body, html{
 }
 
 /* --- START SCREEN --- */
-.startPopUp{
+#startWindow{
     display:grid;
     align-items: center;
     justify-items: center;
     color: rgb(255, 255, 255);
 }
-.startPopUp p, .startPopUp h1{
+#startWindow p, #startWindow h1{
     width: 35vh;
 }
-.startPopUp h1{
+#startWindow h1{
     align-self: end;
     border-bottom: solid 1px rgb(255, 255, 255);
     padding: 0 0 0.5em 0;
 }
-.startPopUp p{
+#startWindow p{
     align-self: start;
 
 
@@ -59,7 +59,7 @@ body, html{
     filter: grayscale(30%);
 }
 
-.game{
+#gameWindow{
     display:grid;
     grid-template-columns: 5% 45% 45% 5%;
     grid-template-rows: 60% 20% 20%;
@@ -70,7 +70,7 @@ body, html{
  --- https://getcssscan.com/css-buttons-examples ---                                   
  */
 
- button {
+button {
     position: relative;
     overflow: hidden;
     border: none;
@@ -138,7 +138,7 @@ button:hover span:last-child {
     transition: all 900ms cubic-bezier(0.48, 0, 0.12, 1);
 }
 
-.game div{
+#gameWindow div{
     grid-column: 1 / 2;
 }
 #question{

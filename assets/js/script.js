@@ -1,4 +1,28 @@
 
+// wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function() {
+  const startWindow = document.getElementById('startWindow');
+  const gameWindow = document.getElementById("gameWindow");
+  const playButton = document.getElementById("startGame");
+
+  playButton.addEventListener('click', (e) =>{
+    gameWindow.classList.remove('hide');
+    startWindow.classList.add('hide');
+    runGame(0);
+  })
+
+
+});
+
+// show game screen and let user play game
+function runGame(round){
+
+  
+
+}
+
+//disaplys results 
+function showResults(){
 
 
 
@@ -16,8 +40,9 @@ let resultsChart = new Chart("resultsChart", {
         plugins:{
             legend:{
                 display: false,
-                fontColor: 'white'
             },
         },
     }
 });
+
+}
