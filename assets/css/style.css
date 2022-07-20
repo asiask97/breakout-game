@@ -5,13 +5,15 @@ body, html{
     font-family: 'Noto Sans', sans-serif;
 
 }
+#gameContainer{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* --- helper classes --- */
 .centre{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
     width: 90vw;
     height: 80vh;
 }
@@ -32,6 +34,7 @@ body, html{
     align-items: center;
     justify-items: center;
     color: rgb(255, 255, 255);
+
 }
 #startWindow p, #startWindow h1{
     width: 35vh;
@@ -177,4 +180,28 @@ button:hover span:last-child {
     justify-self: center;
     align-self: end;
     margin-bottom: 1em;
+}
+
+.slideIn{
+    animation: slide-in 1000ms;
+}
+@keyframes slide-in {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(120%);
+    }
+}
+
+.slideOut{
+    animation: slide-out 1000ms;
+}
+@keyframes slide-out {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
 }

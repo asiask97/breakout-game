@@ -6,8 +6,20 @@ document.addEventListener("DOMContentLoaded", function() {
   const playButton = document.getElementById("startGame");
 
   playButton.addEventListener('click', (e) =>{
-    gameWindow.classList.remove('hide');
-    startWindow.classList.add('hide');
+    
+    //added time out to make smooth animations  
+    startWindow.classList.add('slideIn')
+    setTimeout(function(){
+      startWindow.classList.add('hide')
+      gameWindow.classList.add('slideOut')
+    }, 990);
+
+    setTimeout(function(){
+      gameWindow.classList.remove('hide')
+    }, 980);
+
+    //fetch questions from database
+
     runGame(0);
   })
 
@@ -15,9 +27,25 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // show game screen and let user play game
-function runGame(round){
-
+function runGame(round, questions){  
   
+  const question = document.getElementById("question");
+  const optionOne = document.getElementById('choiceOne');
+  const optionTwo = document.getElementById("choiceTwo");
+  
+  //display question based on round number
+
+  //if option one is picked
+  optionOne.addEventListener('click', (e) =>{
+    
+    
+  })
+
+  //if option two is picked
+  optionOne.addEventListener('click', (e) =>{
+    
+    
+  })
 
 }
 
