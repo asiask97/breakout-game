@@ -3,7 +3,7 @@ body, html{
     margin: 0;
     overflow: hidden;
     font-family: 'Noto Sans', sans-serif;
-
+    color: white;
 }
 #gameContainer{
     width: 100vw;
@@ -65,7 +65,7 @@ body, html{
 #gameWindow{
     display:grid;
     grid-template-columns: 5% 45% 45% 5%;
-    grid-template-rows: 60% 20% 20%;
+    grid-template-rows: 35% 30% 5% 30%;
 }
 
 
@@ -91,7 +91,6 @@ button {
     -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 7px, rgba(0, 0, 0, 0.20) 0px 4px 7px;
-
 }
 
 button span:first-child {
@@ -148,7 +147,7 @@ button:hover span:last-child {
     grid-column: 2/4;
     color: rgb(255, 255, 255);
     text-align: center;
-    place-self: center;  
+    place-self: end;  
     font-size: 2em;
 }
 #choiceOne, #choiceTwo{
@@ -156,14 +155,23 @@ button:hover span:last-child {
     align-self: start;
     justify-self: center;
 }
-
 #choiceOne{
     align-self: end;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+}
+#choiceTwo{
+    margin-top: 1em;
+}
+#gameWindow h2{
+    grid-column: 2/4;
+    grid-row: 3/4;
+    margin: 0;
+    align-self: start;
+    justify-self: center;
 }
 
 /* STATISTIC SCREEN */
-.statisticsContainer{
+#statWindow{
     display: grid;
     grid-template-rows: 80% 20%;
 
