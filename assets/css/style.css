@@ -65,7 +65,7 @@ body, html{
 #gameWindow{
     display:grid;
     grid-template-columns: 5% 45% 45% 5%;
-    grid-template-rows: 35% 30% 5% 30%;
+    grid-template-rows: 30% 30% 10% 30%;
 }
 
 
@@ -147,7 +147,7 @@ button:hover span:last-child {
     grid-column: 2/4;
     color: rgb(255, 255, 255);
     text-align: center;
-    place-self: end;  
+    align-self: end;  
     font-size: 2em;
 }
 #choiceOne, #choiceTwo{
@@ -166,7 +166,7 @@ button:hover span:last-child {
     grid-column: 2/4;
     grid-row: 3/4;
     margin: 0;
-    align-self: start;
+    align-self: center;
     justify-self: center;
 }
 
@@ -174,7 +174,6 @@ button:hover span:last-child {
 #statWindow{
     display: grid;
     grid-template-rows: 80% 20%;
-
 }
 
 #statistics{
@@ -188,6 +187,23 @@ button:hover span:last-child {
     justify-self: center;
     align-self: end;
     margin-bottom: 1em;
+}
+
+
+/* END SCREEN */
+#endWindow{
+    display: grid;
+}
+#endWindow h2, #endWindow p{
+    justify-self: center;
+
+}
+#endWindow h2{
+    font-size: 2em;    
+    align-self: end;
+}
+#endWindow p{
+    margin: 2em;
 }
 
 .slideIn{
