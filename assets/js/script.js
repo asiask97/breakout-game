@@ -1,15 +1,17 @@
 let chart
+let round = 0
 
 // wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function() {
   const startWindow = document.getElementById('startWindow');
   const gameWindow = document.getElementById("gameWindow");
   const playButton = document.getElementById("startGame");
-  let round = 0;
+  //let round = 0;
   let questions = [];
   
   playButton.addEventListener('click', (e) =>{
-    
+    e.stopImmediatePropagation();
+    e.stopPropagation();
     changeToResults(startWindow, gameWindow)
     // make sure questions loaded
     fetchQuestionsJSON().then(obj => {
@@ -39,25 +41,31 @@ function runGame(questions, round){
   optionTwo.innerHTML= questions[round].optionTwo
 
   
+ async function handlerOne(){
+  buttonOne.removeEventListener('click', handlerOne, false);
+  buttonTwo.removeEventListener('click', handlerTwo, false);
 
-  let results=[];
-  //if option one is picked
-  buttonOne.addEventListener('click', async function handler(e){
-    let option = "one";
-    results=[]
-    changeToResults(gameWindow, statWindow);
-    postResults(round+1 , option).then(obj => {
-      Object.values(obj).forEach(element => {
-        results.push(element)
-      });
-      showResults(questions, round, results)
-      this.removeEventListener('click', handler);
-
+  let option = "one";
+  results=[]
+  changeToResults(gameWindow, statWindow);
+  postResults(round+1 , option).then(obj => {
+    Object.values(obj).forEach(element => {
+      results.push(element)
     });
-  })
+    showResults(questions, round, results)
+    console.log('one')
 
-  //if option two is picked
-  buttonTwo.addEventListener('click', async function handler(e){ 
+  });
+ }
+
+
+  //if option one is picked
+  buttonOne.addEventListener('click',  handlerOne, false)
+
+  async function handlerTwo(){
+    buttonTwo.removeEventListener('click', handlerTwo, false);
+    buttonOne.removeEventListener('click', handlerOne, false);
+
     let option = "two";
     results=[]
     changeToResults(gameWindow, statWindow);
@@ -66,11 +74,16 @@ function runGame(questions, round){
         results.push(element)
       });
       showResults(questions, round, results)
-      this.removeEventListener('click', handler);
+     
+      console.log('two')
 
     });
 
-  })
+  }
+  //if option two is picked
+  buttonTwo.addEventListener('click', handlerTwo, false) 
+    //e.stopImmediatePropagation();
+    
 
 }
 
@@ -109,16 +122,17 @@ function showResults(questions, round, results){
     chart.data.datasets[0].data = [resultOne, resultTwo];
     chart.update()
   }
-  
   //if next game is clicked
   nextQuestion.addEventListener('click', function handler(e){
+    //e.stopImmediatePropagation()
     if(round+1 == questions.length){
       changeToResults(statWindow, endWindow);
     }else{
       runGame(questions, round+1)
       changeToResults(statWindow, gameWindow);
     }
-    this.removeEventListener('click', handler);
+    console.log('next game', round)
+    nextQuestion.removeEventListener('click', handler);
   })
   
 }
