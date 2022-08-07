@@ -100,9 +100,22 @@ function showResults(questions, round, results){
   const endWindow = document.getElementById('endWindow');
   const nextQuestion = document.getElementById('nextQuestion');
   const resultsChart = document.getElementById("resultsChart");
-
+  const displayResultsOne = document.getElementById("displayResultsOne")
+  const displayResultsTwo = document.getElementById("displayResultsTwo")
   const resultOne = results[0].optionOne;
   const resultTwo = results[0].optionTwo;
+
+  //calculate percanage
+  let total = resultOne+resultTwo
+  let resultOnePercent = Math.round(resultOne/total*100);
+  let resultTwoPercent = Math.round(resultTwo/total*100);
+
+  displayResultsOne.innerHTML = questions[round].optionOne.charAt(0).toUpperCase() + questions[round].optionOne.slice(1) + ' chose: ' + resultOnePercent + '%'
+  displayResultsTwo.innerHTML = questions[round].optionTwo.charAt(0).toUpperCase() + questions[round].optionTwo.slice(1) + ' chose: ' + resultTwoPercent + '%'
+
+
+
+
   console.log(resultOne, resultTwo, round)
   
   if(!chart){
@@ -111,7 +124,7 @@ function showResults(questions, round, results){
       data: {
         labels: ["Option One", "Option Two"],
         datasets: [{
-          backgroundColor: ["#2F1F5B","#FFEBE5 "],
+          backgroundColor: ["#2F1F5B","#FFEBE5"],
           borderColor:['#FFFFFF'],
           data: [resultOne, resultTwo]
         }]

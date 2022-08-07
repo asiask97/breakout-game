@@ -259,7 +259,7 @@ button:hover span:last-child {
 /* STATISTIC SCREEN */
 #statWindow{
     display: grid;
-    grid-template-rows: 80% 20%;
+    grid-template-rows: 70% 10% 20%;
 }
 #statistics{
     align-self: center;
@@ -267,14 +267,40 @@ button:hover span:last-child {
     color: white;
     width: 85vw;
 }
+#resultsChart{
+    max-height: 50vh;
+}
+#statisticsData{
+    align-self: center;
+    justify-self: center;
+    max-width: 80vw;
+}
+#statisticsData ul{
+    list-style: none;
+    padding: 0;
+}
+#statisticsData ul li{
+    font-size: 1em;
+}
+#statisticsData ul li:first-child::before {
+    content: "■";
+    color: #2F1F5B;
+    display: inline-block; 
+    width: 1em;
+}
+#statisticsData ul li:last-child::before {
+    content: "■";
+    color: #FFEBE5;
+    display: inline-block; 
+    width: 1em;
+
+  }
 #nextQuestion{
     justify-self: center;
     align-self: end;
     margin-bottom: 1em;
 }
-#resultsChart{
-    max-height: 50vh;
-}
+
 
 /* END SCREEN */
 #endWindow{
