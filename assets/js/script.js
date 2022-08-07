@@ -1,24 +1,31 @@
 let chart
-let round = 0
+
 
 // wait for the DOM to load
 document.addEventListener("DOMContentLoaded", function() {
   const startWindow = document.getElementById('startWindow');
   const gameWindow = document.getElementById("gameWindow");
   const playButton = document.getElementById("startGame");
-  //let round = 0;
-  let questions = [];
   
+  let round = 0
+  let questions = [];
+
+  const loader = document.getElementById('load');
+
   playButton.addEventListener('click', (e) =>{
+    playButton.classList.add('hide')
+    loader.classList.remove('hide')
     e.stopImmediatePropagation();
     e.stopPropagation();
-    changeToResults(startWindow, gameWindow)
     // make sure questions loaded
     fetchQuestionsJSON().then(obj => {
       Object.values(obj)[0].forEach(element => {
         questions.push(element)
       });
-      runGame(questions, round)
+      console.log(questions);      
+      runGame(questions, round);  
+      changeToResults(startWindow, gameWindow);
+
     });
      
   })
@@ -40,7 +47,6 @@ function runGame(questions, round){
   optionOne.innerHTML= questions[round].optionOne
   optionTwo.innerHTML= questions[round].optionTwo
 
-  
  async function handlerOne(){
   buttonOne.removeEventListener('click', handlerOne, false);
   buttonTwo.removeEventListener('click', handlerTwo, false);
