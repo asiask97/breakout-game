@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-
-
 // show game screen and let user play game
 function runGame(questions, round){  
   const buttonOne = document.getElementById('choiceOne');
@@ -60,7 +58,6 @@ function runGame(questions, round){
   });
  }
 
-
   //if option one is picked
   buttonOne.addEventListener('click',  handlerOne, false)
 
@@ -81,7 +78,6 @@ function runGame(questions, round){
   }
   //if option two is picked
   buttonTwo.addEventListener('click', handlerTwo, false)   
-
 }
 
 //disaplys results 
