@@ -173,7 +173,6 @@ button {
     cursor: pointer;
     background: #fff;
     user-select: none;
-    -webkit-user-select: none;
     touch-action: manipulation;
     box-shadow: rgba(0, 0, 0, 0.20) 0px 4px 7px, rgba(0, 0, 0, 0.20) 0px 4px 7px;
 }
