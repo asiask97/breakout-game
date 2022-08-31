@@ -1,10 +1,9 @@
 let chart
 
-
 // wait for the DOM to load
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', function() {
   const startWindow = document.getElementById('startWindow');
-  const gameWindow = document.getElementById("gameWindow");
+  const gameWindow = document.getElementById('gameWindow');
   const playButton = document.getElementById("startGame");
   
   let round = 0
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
       Object.values(obj)[0].forEach(element => {
         questions.push(element)
       });
-      console.log(questions);      
       runGame(questions, round);  
       changeToResults(startWindow, gameWindow);
 
@@ -40,7 +38,7 @@ function runGame(questions, round){
   const buttonTwo = document.getElementById('choiceTwo');
   const optionOne = document.getElementById('choiceOneText');
   const optionTwo = document.getElementById("choiceTwoText");
-  const gameWindow = document.getElementById("gameWindow");
+  const gameWindow = document.getElementById('gameWindow');
   const statWindow = document.getElementById('statWindow');
 
   //display question based on round number
@@ -51,7 +49,7 @@ function runGame(questions, round){
   buttonOne.removeEventListener('click', handlerOne, false);
   buttonTwo.removeEventListener('click', handlerTwo, false);
 
-  let option = "one";
+  let option = 'one';
   results=[]
   changeToResults(gameWindow, statWindow);
   postResults(round+1 , option).then(obj => {
@@ -59,8 +57,6 @@ function runGame(questions, round){
       results.push(element)
     });
     showResults(questions, round, results)
-    console.log('one')
-
   });
  }
 
@@ -72,7 +68,7 @@ function runGame(questions, round){
     buttonTwo.removeEventListener('click', handlerTwo, false);
     buttonOne.removeEventListener('click', handlerOne, false);
 
-    let option = "two";
+    let option = 'two';
     results=[]
     changeToResults(gameWindow, statWindow);
     postResults(round+1 , option).then(obj => {
@@ -80,27 +76,22 @@ function runGame(questions, round){
         results.push(element)
       });
       showResults(questions, round, results)
-     
-      console.log('two')
-
     });
 
   }
   //if option two is picked
-  buttonTwo.addEventListener('click', handlerTwo, false) 
-    //e.stopImmediatePropagation();
-    
+  buttonTwo.addEventListener('click', handlerTwo, false)   
 
 }
 
 //disaplys results 
 function showResults(questions, round, results){
-  const gameWindow = document.getElementById("gameWindow");
+  const gameWindow = document.getElementById('gameWindow');
   const statWindow = document.getElementById('statWindow');
   const endWindow = document.getElementById('endWindow');
   const nextQuestion = document.getElementById('nextQuestion');
   const resultsChart = document.getElementById("resultsChart");
-  const displayResultsOne = document.getElementById("displayResultsOne")
+  const displayResultsOne = document.getElementById('displayResultsOne')
   const displayResultsTwo = document.getElementById("displayResultsTwo")
   const resultOne = results[0].optionOne;
   const resultTwo = results[0].optionTwo;
@@ -112,19 +103,14 @@ function showResults(questions, round, results){
 
   displayResultsOne.innerHTML = questions[round].optionOne.charAt(0).toUpperCase() + questions[round].optionOne.slice(1) + ' chose: ' + resultOnePercent + '%'
   displayResultsTwo.innerHTML = questions[round].optionTwo.charAt(0).toUpperCase() + questions[round].optionTwo.slice(1) + ' chose: ' + resultTwoPercent + '%'
-
-
-
-
-  console.log(resultOne, resultTwo, round)
   
   if(!chart){
      chart = new Chart(resultsChart, {
-      type: "pie",
+      type: 'pie',
       data: {
-        labels: ["Option One", "Option Two"],
+        labels: ['Option One", "Option Two'],
         datasets: [{
-          backgroundColor: ["#2F1F5B","#FFEBE5"],
+          backgroundColor: ['#2F1F5B','#FFEBE5'],
           borderColor:['#FFFFFF'],
           data: [resultOne, resultTwo]
         }]
@@ -143,19 +129,16 @@ function showResults(questions, round, results){
   }
   //if next game is clicked
   nextQuestion.addEventListener('click', function handler(e){
-    //e.stopImmediatePropagation()
     if(round+1 == questions.length){
       changeToResults(statWindow, endWindow);
     }else{
       runGame(questions, round+1)
       changeToResults(statWindow, gameWindow);
     }
-    console.log('next game', round)
     nextQuestion.removeEventListener('click', handler);
   })
   
 }
-
 
 /*  ===============================  */
 
@@ -180,8 +163,8 @@ async function postResults(round, option){
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      "option": option,
-      "question":round
+      'option': option,
+      'question':round
     })
   });
   const res = await response.json();
