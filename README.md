@@ -1,6 +1,6 @@
 # **Would You Rather?**  - JavaScript, HTML and CSS on frontend and Flask and PostgreSQL on backend
 
-<a href='https://asiask97.github.io/would-you-rather/'><img src='documentation/' alt='Main screen of the website'></a>
+<a href='https://asiask97.github.io/would-you-rather/'><img src='documentation/devices.png' alt='Main screen of the website'></a>
 
 ### [Live Webiste](https://asiask97.github.io/would-you-rather/)
 ### [Backend](https://github.com/asiask97/would-you-rather-backend)
@@ -27,7 +27,11 @@ Would You Rather is a small project which consists of two parts, frontend with v
 
 The whole point of the game is to ask the users to answer a set of questions and display all their results in the form of a pie chart. The purpose of this project is to see what another anonymous user would rather choose. The user gets an option of two choices and must pick the option that they would prefer more, users choice is saved in a database for each answer and then all results are displayed on a chart for the user to see. It's a fun and lighthearted game to kill some time and have a laugh.  
 
+<img src='documentation/flow.gif' alt='flow of webiste on mobile screen'>
+<br/> 
+
 **Time frame to finish this project was about 20-25 hours.** 
+
 
 <br/> 
 <br/> 
@@ -39,19 +43,26 @@ The whole front end of the website consists of four containers that are animated
 
 ## Start Window  
  
-
 Start page gives a brief explanation of what the user is about to experience. It tells the user what the game is about in a lighthearted way. Once the user decides to play the game they are moved to the 'game' screen. The button on this page on hover shows hidden text, there is an event listener added to this button that fetches all the questions from the database, if a user has slower internet a load spinner is displayed.  
+
+<img src='documentation/start.png' alt='start game section'>
 
 ## Game Window 
 
 Here the user gets an especially important question - 'Would you rather?' and a pair of buttons which contain the answers. Users are asked to choose the one that they think is the preferred option. On hover each button displays different fun text as shown in the picture below. Once the users clicks on one of the given options a result is posted to database which increases the overall count for that option. 
 
+<img src='documentation/game.png' alt='game section'>
 
 ## Results Window 
 
 On the Results window we can see a pie chart which displays exact results fetched from the database. Below the pie chart there is a section with the same results but displayed as a percentage. There the user is also reminded of the two questions and how they are linked with colors on the pie chart. When user is done analyzing the results, they can continue the game using the button at the bottom of the screen.  
- 
+
+<img src='documentation/results.png' alt='results section'></a>
+
+## End Window 
+
 # UX
+<img src='documentation/button-hover.jpg' alt='results section'></a>
 
 
 # Testing
