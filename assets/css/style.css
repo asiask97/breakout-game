@@ -56,7 +56,7 @@ body, html{
  */
 
 .lds-spinner {
-    color: official;
+    color: white;
     display: inline-block;
     position: relative;
     width: 80px;
