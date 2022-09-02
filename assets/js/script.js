@@ -125,7 +125,7 @@ function showResults(questions, round, results){
       //add event listner to start game again.
       document.getElementById('endGame').addEventListener('click', ()=>{
         location.reload();
-      })
+      });
     }else{
       runGame(questions, round+1);
       changeToResults(statWindow, gameWindow);
