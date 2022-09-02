@@ -102,11 +102,20 @@ Each button on the website was tested to make sure it works correctly and that a
 <img src='documentation/lighthouseDesk.png' alt='lighthouse on desktop'>
 
 ### Mobile 
-<img src='documentation/lighthouseMobile.png' alt='Lighthouse on mobile'>
+<img src='documentation/lighthouseMobile.png' alt='lighthouse on mobile'>
 
-##  Issues
+##  Issues & Fixes 
+During the development of the project, I have come across several issues.  
 
-## Fixes 
+- First issue was with chartJS library. The error I was getting when trying to update the chart for each question was caused by a function creating an instance of a cart each time it was called. To fix this issue I decided to use global variable for chart object.  
+
+- Another issue was related to event listeners attached to buttons. Each time a button was clicked a new instance of a function was called multiple times. To fix this problem I have decided to remove event listeners after a click was made so the same button wont fire more than once.  
+
+- I had to wait for data to finish fetching before continuing the code as the questions array was returning empty. This issue was easy to fix with async and await.  
+
+- Not so much an issue but an improvement was creation of helper functions which are called to do one specific thing like start animation or fetch specific data.  
+
+ 
 
 # User Stories
 ### Some of user stories that got completed 
@@ -147,6 +156,7 @@ I used the fallowing websites and libraries throughout the project:
 - [Images and videos from pexels.com.](https://www.pexels.com/)
 - [Loader used to indicate detching data.](https://loading.io/css/)
 - [Inspiration for buttons was taken from this website - Button 57.](https://loading.io/css/)
+- [ChartJS library.](https://www.chartjs.org/)
 - [Insparation for would you rather questions.](https://www.signupgenius.com/groups/would-you-rather.cfm)
 - [Insparation for would you rather questions.](https://www.quizbreaker.com/would-you-rather#difficult-would-you-rather-questions)
 - [Insparation for would you rather questions.](https://woulduratherquestions.com/deep-would-you-rather-questions/)
@@ -180,3 +190,5 @@ To deploy I have made a Repo on GitHub and pushed initial code. Then I have:
 The website is now live. 
 
 # Backend
+Backend is currently deployed on Heroku with postgres database. 
+- [More on backend can be found here.](https://github.com/asiask97/would-you-rather-backend)
