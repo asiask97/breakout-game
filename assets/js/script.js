@@ -1,4 +1,4 @@
-let chart
+let chart;
 
 // wait for the DOM to load
 document.addEventListener('DOMContentLoaded', function() {
@@ -93,7 +93,7 @@ function showResults(questions, round, results){
   const resultTwo = results[0].optionTwo;
 
   //calculate percanage
-  let total = resultOne+resultTwo
+  let total = resultOne+resultTwo;
   let resultOnePercent = Math.round(resultOne/total*100);
   let resultTwoPercent = Math.round(resultTwo/total*100);
 
@@ -128,7 +128,7 @@ function showResults(questions, round, results){
     if(round+1 == questions.length){
       changeToResults(statWindow, endWindow);
     }else{
-      runGame(questions, round+1)
+      runGame(questions, round+1);
       changeToResults(statWindow, gameWindow);
     }
     nextQuestion.removeEventListener('click', handler);
@@ -186,4 +186,4 @@ function changeToResults(toHide, toShow){
     toShow.classList.remove('hide');
  }, 990);
 
-};
+}
