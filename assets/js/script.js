@@ -6,27 +6,27 @@ document.addEventListener('DOMContentLoaded', function() {
   const gameWindow = document.getElementById('gameWindow');
   const playButton = document.getElementById("startGame");
   
-  let round = 0
+  let round = 0;
   let questions = [];
 
   const loader = document.getElementById('load');
 
   playButton.addEventListener('click', (e) =>{
-    playButton.classList.add('hide')
-    loader.classList.remove('hide')
+    playButton.classList.add('hide');
+    loader.classList.remove('hide');
     e.stopImmediatePropagation();
     e.stopPropagation();
     // make sure questions loaded
     fetchQuestionsJSON().then(obj => {
       Object.values(obj)[0].forEach(element => {
-        questions.push(element)
+        questions.push(element);
       });
       runGame(questions, round);  
       changeToResults(startWindow, gameWindow);
 
     });
      
-  })
+  });
 
 });
 
@@ -40,44 +40,44 @@ function runGame(questions, round){
   const statWindow = document.getElementById('statWindow');
 
   //display question based on round number
-  optionOne.innerHTML= questions[round].optionOne
-  optionTwo.innerHTML= questions[round].optionTwo
+  optionOne.innerHTML= questions[round].optionOne;
+  optionTwo.innerHTML= questions[round].optionTwo;
 
  async function handlerOne(){
   buttonOne.removeEventListener('click', handlerOne, false);
   buttonTwo.removeEventListener('click', handlerTwo, false);
 
   let option = 'one';
-  results=[]
+  let results=[];
   changeToResults(gameWindow, statWindow);
   postResults(round+1 , option).then(obj => {
     Object.values(obj).forEach(element => {
-      results.push(element)
+      results.push(element);
     });
-    showResults(questions, round, results)
+    showResults(questions, round, results);
   });
  }
 
   //if option one is picked
-  buttonOne.addEventListener('click',  handlerOne, false)
+  buttonOne.addEventListener('click',  handlerOne, false);
 
   async function handlerTwo(){
     buttonTwo.removeEventListener('click', handlerTwo, false);
     buttonOne.removeEventListener('click', handlerOne, false);
 
     let option = 'two';
-    results=[]
+    let results=[];
     changeToResults(gameWindow, statWindow);
     postResults(round+1 , option).then(obj => {
       Object.values(obj).forEach(element => {
-        results.push(element)
+        results.push(element);
       });
-      showResults(questions, round, results)
+      showResults(questions, round, results);
     });
 
   }
   //if option two is picked
-  buttonTwo.addEventListener('click', handlerTwo, false)   
+  buttonTwo.addEventListener('click', handlerTwo, false);   
 }
 
 //disaplys results 
@@ -87,8 +87,8 @@ function showResults(questions, round, results){
   const endWindow = document.getElementById('endWindow');
   const nextQuestion = document.getElementById('nextQuestion');
   const resultsChart = document.getElementById("resultsChart");
-  const displayResultsOne = document.getElementById('displayResultsOne')
-  const displayResultsTwo = document.getElementById("displayResultsTwo")
+  const displayResultsOne = document.getElementById('displayResultsOne');
+  const displayResultsTwo = document.getElementById("displayResultsTwo");
   const resultOne = results[0].optionOne;
   const resultTwo = results[0].optionTwo;
 
@@ -97,8 +97,8 @@ function showResults(questions, round, results){
   let resultOnePercent = Math.round(resultOne/total*100);
   let resultTwoPercent = Math.round(resultTwo/total*100);
 
-  displayResultsOne.innerHTML = questions[round].optionOne.charAt(0).toUpperCase() + questions[round].optionOne.slice(1) + ' chose: ' + resultOnePercent + '%'
-  displayResultsTwo.innerHTML = questions[round].optionTwo.charAt(0).toUpperCase() + questions[round].optionTwo.slice(1) + ' chose: ' + resultTwoPercent + '%'
+  displayResultsOne.innerHTML = questions[round].optionOne.charAt(0).toUpperCase() + questions[round].optionOne.slice(1) + ' chose: ' + resultOnePercent + '%';
+  displayResultsTwo.innerHTML = questions[round].optionTwo.charAt(0).toUpperCase() + questions[round].optionTwo.slice(1) + ' chose: ' + resultTwoPercent + '%';
   
   if(!chart){
      chart = new Chart(resultsChart, {
@@ -121,7 +121,7 @@ function showResults(questions, round, results){
     });
   }else{
     chart.data.datasets[0].data = [resultOne, resultTwo];
-    chart.update()
+    chart.update();
   }
   //if next game is clicked
   nextQuestion.addEventListener('click', function handler(e){
@@ -132,7 +132,7 @@ function showResults(questions, round, results){
       changeToResults(statWindow, gameWindow);
     }
     nextQuestion.removeEventListener('click', handler);
-  })
+  });
   
 }
 
@@ -170,20 +170,20 @@ async function postResults(round, option){
 function changeToResults(toHide, toShow){
   
   //reset previous classes
-  toHide.classList.remove('slideOut')
-  toHide.classList.remove('slideIn')
-  toShow.classList.remove('slideOut')
-  toShow.classList.remove('slideIn')
+  toHide.classList.remove('slideOut');
+  toHide.classList.remove('slideIn');
+  toShow.classList.remove('slideOut');
+  toShow.classList.remove('slideIn');
   //added time out to make smooth animations  
-  toHide.classList.add('slideIn')
+  toHide.classList.add('slideIn');
     
   setTimeout(function(){
-    toHide.classList.add('hide')
-    toShow.classList.add('slideOut')
+    toHide.classList.add('hide');
+    toShow.classList.add('slideOut');
   }, 970);
 
  setTimeout(function(){
-    toShow.classList.remove('hide')
+    toShow.classList.remove('hide');
  }, 990);
 
 };
