@@ -305,7 +305,7 @@ button:hover span:last-child {
 #endWindow{
     display: grid;
 }
-#endWindow h2, #endWindow p{
+#endWindow h2, #endWindow p, #endWindow #endGame{
     justify-self: center;
 
 }

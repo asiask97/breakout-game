@@ -5,10 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const startWindow = document.getElementById('startWindow');
   const gameWindow = document.getElementById('gameWindow');
   const playButton = document.getElementById("startGame");
-  
   let round = 0;
   let questions = [];
-
   const loader = document.getElementById('load');
 
   playButton.addEventListener('click', (e) =>{
@@ -38,26 +36,24 @@ function runGame(questions, round){
   const optionTwo = document.getElementById("choiceTwoText");
   const gameWindow = document.getElementById('gameWindow');
   const statWindow = document.getElementById('statWindow');
-
   //display question based on round number
   optionOne.innerHTML= questions[round].optionOne;
   optionTwo.innerHTML= questions[round].optionTwo;
 
- async function handlerOne(){
-  buttonOne.removeEventListener('click', handlerOne, false);
-  buttonTwo.removeEventListener('click', handlerTwo, false);
+  async function handlerOne(){
+    buttonOne.removeEventListener('click', handlerOne, false);
+    buttonTwo.removeEventListener('click', handlerTwo, false);
 
-  let option = 'one';
-  let results=[];
-  changeToResults(gameWindow, statWindow);
-  postResults(round+1 , option).then(obj => {
-    Object.values(obj).forEach(element => {
-      results.push(element);
+    let option = 'one';
+    let results=[];
+    changeToResults(gameWindow, statWindow);
+    postResults(round+1 , option).then(obj => {
+      Object.values(obj).forEach(element => {
+        results.push(element);
+      });
+      showResults(questions, round, results);
     });
-    showResults(questions, round, results);
-  });
- }
-
+  }
   //if option one is picked
   buttonOne.addEventListener('click',  handlerOne, false);
 
@@ -91,12 +87,11 @@ function showResults(questions, round, results){
   const displayResultsTwo = document.getElementById("displayResultsTwo");
   const resultOne = results[0].optionOne;
   const resultTwo = results[0].optionTwo;
-
-  //calculate percanage
+  //calculate percantage
   let total = resultOne+resultTwo;
   let resultOnePercent = Math.round(resultOne/total*100);
   let resultTwoPercent = Math.round(resultTwo/total*100);
-
+  //display percantage
   displayResultsOne.innerHTML = questions[round].optionOne.charAt(0).toUpperCase() + questions[round].optionOne.slice(1) + ' chose: ' + resultOnePercent + '%';
   displayResultsTwo.innerHTML = questions[round].optionTwo.charAt(0).toUpperCase() + questions[round].optionTwo.slice(1) + ' chose: ' + resultTwoPercent + '%';
   
@@ -127,6 +122,10 @@ function showResults(questions, round, results){
   nextQuestion.addEventListener('click', function handler(e){
     if(round+1 == questions.length){
       changeToResults(statWindow, endWindow);
+      //add event listner to start game again.
+      document.getElementById('endGame').addEventListener('click', ()=>{
+        location.reload();
+      })
     }else{
       runGame(questions, round+1);
       changeToResults(statWindow, gameWindow);
