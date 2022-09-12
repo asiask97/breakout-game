@@ -6,7 +6,6 @@
 ### [Backend](https://github.com/asiask97/would-you-rather-backend)
 
 <br/>
-<br/>
 
 # Table of Contents 
 * [Introduction](#introduction)
@@ -190,7 +189,6 @@ During the development of the project, I have come across several issues.
 | 10          | As a user I want to be able to see when the questions are loading if I have slower internet.    
 
 <br/>
-<br/>
 
 ### Some of user stories are planned for next sprint
 
@@ -201,7 +199,6 @@ During the development of the project, I have come across several issues.
 | 3           | As a user I want to see what my friend and only my friends answered in each question. 
 | 4           | As a user I want to have sections or topics of questions.       
 
-<br/>
 <br/>
 
 # Credits
