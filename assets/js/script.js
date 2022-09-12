@@ -21,11 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       runGame(questions, round);  
       changeToResults(startWindow, gameWindow);
-
     });
-     
   });
-
 });
 
 // show game screen and let user play game
@@ -70,7 +67,6 @@ function runGame(questions, round){
       });
       showResults(questions, round, results);
     });
-
   }
   //if option two is picked
   buttonTwo.addEventListener('click', handlerTwo, false);   
@@ -184,5 +180,4 @@ function changeToResults(toHide, toShow){
  setTimeout(function(){
     toShow.classList.remove('hide');
  }, 990);
-
 }
