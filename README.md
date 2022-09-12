@@ -57,15 +57,33 @@ Here the user gets an especially important question - 'Would you rather?' and a 
 
 On the Results window we can see a pie chart which displays exact results fetched from the database. Below the pie chart there is a section with the same results but displayed as a percentage. There the user is also reminded of the two questions and how they are linked with colors on the pie chart. When user is done analyzing the results, they can continue the game using the button at the bottom of the screen.  
 
-<img src='documentation/results.png' alt='results section'></a>
+<img src='documentation/results.png' alt='results section'>
 
 ## End Window 
 On the very last slide in screen a user has an option to play again. If the button is clicked the window will be refreshed and the game will start up from the very beginning.  
 
-<img src='documentation/end.png' alt='end section'></a>
+<img src='documentation/end.png' alt='end section'>
 
 # UX
-<img src='documentation/button-hover.jpg' alt='results section'></a>
+## Wire Frames
+I have planned out how the website will look using Balsamiq Wireframes.
+- Home screen / Start Game 
+<img src='documentation/wire_home_decktop.png' alt='wire desktop home section'>
+
+- Game screen 
+<img src='documentation/wire_game_desktop.png' alt='wire desktop game section'>
+
+- Statistics screen 
+<img src='documentation/wire_stats_desktop.png' alt='wire desktop stats section'>
+
+- Mobile screen 
+<img src='documentation/wire_mobile.png' alt='wire desktop stats section'>
+
+## Animations and Effects
+<img src='documentation/button-hover.jpg' alt='game section'>
+- I have made sure to add some UX features that help user enjoy the game little bit more. As shown in the image above I have added fun hover effect on some buttons that gives some comedic relief in the game.
+
+- I have also added animation effect when each section is shown to add some movement and interaction with the user. The user can see each section slide in and out smoothly after each press of a button.
 
 
 # Testing
@@ -91,6 +109,31 @@ List of devices which the website was tested on:
 I have also made sure that the website works across a range of browsers like Chrome, Opera, Firefox and Brave.
 
 Each button on the website was tested to make sure it works correctly and that all links are working and are fully functional. Tests were carried out to make sure that form is validating inputs correctly as previously discussed above. 
+
+## Manual Testing
+ - Tested the start game button to:
+    1. Make sure it shows the game screen.
+    1. Make sure it fetches the questions from API 
+    1. Make sure that loader is shown while the API data is being fetched.
+
+<br/>
+
+- Tested each option button on game screen to:
+    1. Make sure correct option is send to database.
+    1. Make sure statistic screen will be shown
+    1. Make sure there isn't any surprise errors or bugs that I didn't see.
+
+<br/>
+
+- Tested the next question button on statistics screen to:
+    1. Make sure that next question will appear.
+    1. Make sure that the question displayed has correct set of options to choose. 
+
+<br/>
+
+- Checked that each question displayed is only shown to user once.
+- Checked that statistics shown are exactly the same as the ones in the database.
+- Checked that button at the end of the game will take the user to the start by refreshing the browser window.
 
 ##  Validator Testing
 <br/>
@@ -120,6 +163,8 @@ During the development of the project, I have come across several issues.
 - I had to wait for data to finish fetching before continuing the code as the questions array was returning empty. This issue was easy to fix with async and await.  
 
 - Not so much an issue but an improvement was creation of helper functions which are called to do one specific thing like start animation or fetch specific data.
+
+- During my meeting with mentor I have been informed to have my commits more descriptive. This isn't something I can go back and change but this is something Im now aware off and will be improving on going forwards.
 
 ###  Disccusing Warnigs From JSHint
 
